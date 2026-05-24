@@ -1,4 +1,4 @@
-public class sedan {
+public class sedan extends vehiculo {
     private String tipo_combustible;
     private String trasmision;
     

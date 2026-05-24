@@ -1,4 +1,4 @@
-public class suv {
+public class suv extends vehiculo {
     private String traccion;
     private float capacidad_maletero;
 

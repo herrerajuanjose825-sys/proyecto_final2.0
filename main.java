@@ -8,6 +8,8 @@ public class main {
         Scanner sc= new Scanner(System.in);
         metodos_clientes mc =new metodos_clientes();
         LinkedList<cliente> listacliente = new LinkedList<>();
+        metodos_contrato c =new metodos_contrato();
+        LinkedList<contranto> listacontratos = new LinkedList<>();
         metodos_vehiculo v =new metodos_vehiculo();
         LinkedList<vehiculo> listavehiculo = new LinkedList<>();
         while (pedir) {
@@ -102,7 +104,7 @@ public class main {
                                 
                             switch (opt1) {
                                 case 1:
-                                    
+                                        listacontratos=c.registrar_contrto(listacontratos, sc);
                                     break;
                                 case 2:
                                     

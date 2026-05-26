@@ -15,7 +15,7 @@ public class metodos_vehiculo {
         System.out.println("2. Sedan");
         System.out.println("3. SUV");
 
-        int tipo = sc.nextInt();
+        int tipo = validaciones.validarEntero_positivo(sc);
 
         vehiculo v;
 
@@ -34,7 +34,7 @@ public class metodos_vehiculo {
                 break;
         }
         System.out.println("Placa:");
-        String opt1 = sc.next();
+        String opt1 = validaciones.validar_placa(sc);
 
         for (vehiculo o : l) {
             if(o.getPlaca().equalsIgnoreCase(opt1)){
@@ -86,7 +86,7 @@ public class metodos_vehiculo {
         System.out.println("1. Si");
         System.out.println("2. No");
 
-        int op = sc.nextInt();
+        int op = validaciones.validarEntero_positivo(sc);
 
         if (op != 1) {
             seguir = false;
@@ -103,14 +103,14 @@ public class metodos_vehiculo {
         }
 
         System.out.println("Ingrese la placa del vehiculo a modificar");
-        String placa= sc.next();
+        String placa= validaciones.validar_placa(sc);
         boolean bandera=false;
         for (vehiculo o : l) {
             if(o.getPlaca().equalsIgnoreCase(placa)){
                 bandera=true;
                 System.out.println("Ingrese los datos del vehiculo");
                 System.out.println("Placa");
-                o.setPlaca(sc.next());
+                o.setPlaca(validaciones.validar_placa(sc));
                 System.out.println("Marca");
                 o.setMarca(sc.next());
                 System.out.println("Modelo");
@@ -159,7 +159,7 @@ public class metodos_vehiculo {
         }
 
             System.out.println("Ingrese la plca del vehiculo que desea eliminar");
-            String placa=sc.next();
+            String placa=validaciones.validar_placa(sc);
             Iterator<vehiculo> it = l.iterator();
             boolean encontrado=false;
             while(it.hasNext()){
@@ -188,7 +188,7 @@ public class metodos_vehiculo {
         }
 
         System.out.println("Ingrese la placa del vehiculo que desea buscar");
-        String placa= sc.next();
+        String placa= validaciones.validar_placa(sc);
         boolean encontrado=false;
         for (vehiculo c : l) {
             if(c.getPlaca().equalsIgnoreCase(placa)){

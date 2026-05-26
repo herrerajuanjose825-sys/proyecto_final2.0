@@ -6,10 +6,9 @@ public class metodos_clientes {
 
     public LinkedList<cliente>  llenar_lista_cliente (LinkedList<cliente> l, Scanner sc){
         boolean continuar= true;
-    
         while (continuar) {
         System.out.println("Ingrese la cedula");
-        String opt=sc.next();
+        String opt=validaciones.validar_cedula(sc);
         for (cliente o : l) {
             if(o.getCedula().equalsIgnoreCase(opt)){
                 continuar= false;
@@ -20,20 +19,21 @@ public class metodos_clientes {
         }
         
         cliente c= new cliente();
+        sc.nextLine();
         c.setCedula(opt);
         System.out.println("Ingrese el nombre");
-        c.setNombre(sc.next());
+        c.setNombre(validaciones.validar_nombres(sc));
         System.out.println("Ingrese el apellido");
-        c.setApellido(sc.next());
+        c.setApellido(validaciones.validar_nombres(sc));
         System.out.println("Ingrese la direccion ");
         c.setDireccion(sc.next());
         System.out.println("Ingrese su numero movil ");
-        c.setTelefono(sc.next());
+        c.setTelefono(validaciones.validar_celular(sc));
         System.out.println("Ingrese su licencia ");
         c.setLicencia(sc.next());
         l.add(c);
         System.out.println("desea continuar ingresando datos 1) si 2) no ");
-        int op=sc.nextInt();
+        int op=validaciones.validarEntero_positivo(sc);
         if(op!=1){
             continuar=false;
             }
@@ -49,7 +49,7 @@ public class metodos_clientes {
         }
 
         System.out.println(" Ingrese el numero de la cedula del cliente que desea modificar");
-        String modificar1= sc.next();
+        String modificar1= validaciones.validar_cedula(sc);
         boolean encontrado=false;
 
         for (cliente o : l) {
@@ -58,11 +58,11 @@ public class metodos_clientes {
                 System.out.println("Usuario: "+ o.getNombre() + " encontrado" );
                 System.out.println("Ingrese los datos nuevos del usuario");
                 System.out.println("Ingrese el nombre");
-                o.setNombre(sc.next());
+                o.setNombre(validaciones.validar_nombres(sc));
                 System.out.println("Ingrese la cedula");
-                o.setCedula(sc.next());
+                o.setCedula(validaciones.validar_cedula(sc));
                 System.out.println("Ingrese el apellido");
-                o.setApellido(sc.next());
+                o.setApellido(validaciones.validar_nombres(sc));
                 System.out.println("Ingrese la direccion ");
                 o.setDireccion(sc.next());
                 System.out.println("Ingrese su numero movil ");
@@ -90,7 +90,7 @@ public class metodos_clientes {
         }
 
         System.out.println(" Ingrese el numero de la cedula del cliente que desea eliminar");
-        String borrar = sc.next();
+        String borrar = validaciones.validar_cedula(sc);
         Iterator<cliente> it = l.iterator();
 
         while (it.hasNext()) {
@@ -118,7 +118,7 @@ public class metodos_clientes {
         }
 
         System.out.println(" Ingrese el numero de la cedula del cliente que desea Buscar");
-        String buscar= sc.next();
+        String buscar= validaciones.validar_cedula(sc);
         boolean encontrado=false;
 
         for (cliente o : l) {

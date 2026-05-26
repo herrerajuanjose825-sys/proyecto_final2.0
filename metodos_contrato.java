@@ -5,7 +5,6 @@ import java.util.Iterator;
 public class metodos_contrato {
 
     public LinkedList<contranto> registrar_contrto(LinkedList<contranto> l, Scanner sc) {
-
         boolean r = true;
 
         while (r) {
@@ -13,7 +12,7 @@ public class metodos_contrato {
             contranto c = new contranto();
 
             System.out.println("Ingrese la cedula del cliente");
-            String aux = sc.next();
+            String aux = validaciones.validar_cedula(sc);
 
             boolean existeCliente = false;
 
@@ -32,7 +31,7 @@ public class metodos_contrato {
             c.setCedula_cliente(aux);
 
             System.out.println("Ingrese la placa del vehiculo");
-            String aux2 = sc.next();
+            String aux2 = validaciones.validar_placa(sc);
 
             boolean existeVehiculo = false;
 
@@ -62,7 +61,7 @@ public class metodos_contrato {
             System.out.println("1. Si");
             System.out.println("2. No");
 
-            int opt = sc.nextInt();
+            int opt =validaciones.validarEntero_positivo(sc);
 
             if (opt == 2) {
                 r = false;
@@ -73,7 +72,6 @@ public class metodos_contrato {
     }
 
     public LinkedList<contranto> modificar_contrato(LinkedList<contranto> l, Scanner sc) {
-
         if (l.isEmpty()) {
             System.out.println("La lista esta vacia");
             return l;
@@ -86,7 +84,7 @@ public class metodos_contrato {
             boolean encontrado = false;
 
             System.out.println("Ingrese la cedula del titular del contrato");
-            String aux = sc.next();
+            String aux = validaciones.validar_cedula(sc);
 
             for (contranto o : l) {
 
@@ -113,7 +111,7 @@ public class metodos_contrato {
             System.out.println("1. Si");
             System.out.println("2. No");
 
-            int opt = sc.nextInt();
+            int opt = validaciones.validarEntero_positivo(sc);
 
             if (opt == 2) {
                 r = false;
@@ -124,7 +122,6 @@ public class metodos_contrato {
     }
 
     public LinkedList<contranto> finalizar_contrato(LinkedList<contranto> l, LinkedList<contranto> finalizados, Scanner sc) {
-
         if (l.isEmpty()) {
             System.out.println("La lista esta vacia");
             return l;
@@ -137,7 +134,7 @@ public class metodos_contrato {
             boolean encontrado = false;
 
             System.out.println("Ingrese la cedula del contrato a eliminar");
-            String cedula = sc.next();
+            String cedula = validaciones.validar_cedula(sc);
 
             Iterator<contranto> it = l.iterator();
 
@@ -163,7 +160,7 @@ public class metodos_contrato {
             System.out.println("1. Si");
             System.out.println("2. No");
 
-            int opt = sc.nextInt();
+            int opt = validaciones.validarEntero_positivo(sc);
 
             if (opt == 2) {
                 r = false;
@@ -174,7 +171,6 @@ public class metodos_contrato {
     }
 
     public LinkedList<contranto> buscar_contrato(LinkedList<contranto> l, Scanner sc) {
-
         if (l.isEmpty()) {
             System.out.println("La lista esta vacia");
             return l;
@@ -187,7 +183,7 @@ public class metodos_contrato {
             boolean encontrado = false;
 
             System.out.println("Ingrese la cedula del usuario que desea consultar");
-            String cedula = sc.next();
+            String cedula = validaciones.validar_cedula(sc);
 
             for (contranto o : l) {
 
@@ -213,7 +209,7 @@ public class metodos_contrato {
             System.out.println("1. Si");
             System.out.println("2. No");
 
-            int opt = sc.nextInt();
+            int opt = validaciones.validarEntero_positivo(sc);
 
             if (opt == 2) {
                 r = false;

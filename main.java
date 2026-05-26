@@ -6,7 +6,9 @@ public class main {
         boolean pedir=true;
         int opt1=0;
         Scanner sc= new Scanner(System.in);
-        metodos_clientes mc =new metodos_clientes();
+        informe i =new informe();
+        LinkedList<contranto> contratosFinalizados = new LinkedList<>();
+        metodos_clientes mc = new metodos_clientes();
         LinkedList<cliente> listacliente = new LinkedList<>();
         metodos_contrato c =new metodos_contrato();
         LinkedList<contranto> listacontratos = new LinkedList<>();
@@ -110,7 +112,7 @@ public class main {
                                         listacontratos=c.modificar_contrato(listacontratos, sc);
                                     break;
                                 case 3:
-                                        listacontratos=c.finalizar_contrato(listacontratos, sc);
+                                        listacontratos=c.finalizar_contrato(listacontratos, contratosFinalizados, sc);
                                     break;
                                 case 4:
                                         listacontratos=c.buscar_contrato(listacontratos, sc);
@@ -129,7 +131,7 @@ public class main {
                     break;
 
                 case 4:
-                //mosrar informe
+                    i.generarInforme(listacliente, listavehiculo, listacontratos, contratosFinalizados);
                 
                     break;
 

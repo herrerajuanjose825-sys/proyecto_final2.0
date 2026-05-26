@@ -123,7 +123,7 @@ public class metodos_contrato {
         return l;
     }
 
-    public LinkedList<contranto> finalizar_contrato(LinkedList<contranto> l, Scanner sc) {
+    public LinkedList<contranto> finalizar_contrato(LinkedList<contranto> l, LinkedList<contranto> finalizados, Scanner sc) {
 
         if (l.isEmpty()) {
             System.out.println("La lista esta vacia");
@@ -146,7 +146,7 @@ public class metodos_contrato {
                 contranto o = it.next();
 
                 if (o.getCedula_cliente().equalsIgnoreCase(cedula)) {
-
+                    finalizados.add(o);
                     it.remove();
                     encontrado = true;
 

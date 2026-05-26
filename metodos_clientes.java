@@ -6,12 +6,23 @@ public class metodos_clientes {
 
     public LinkedList<cliente>  llenar_lista_cliente (LinkedList<cliente> l, Scanner sc){
         boolean continuar= true;
+    
         while (continuar) {
+        System.out.println("Ingrese la cedula");
+        String opt=sc.next();
+        for (cliente o : l) {
+            if(o.getCedula().equalsIgnoreCase(opt)){
+                continuar= false;
+                System.out.println("La cedula ya se encuentra registrada");
+                return l;
+            }
+            
+        }
+        
         cliente c= new cliente();
+        c.setCedula(opt);
         System.out.println("Ingrese el nombre");
         c.setNombre(sc.next());
-        System.out.println("Ingrese la cedula");
-        c.setCedula(sc.next());
         System.out.println("Ingrese el apellido");
         c.setApellido(sc.next());
         System.out.println("Ingrese la direccion ");
@@ -64,7 +75,7 @@ public class metodos_clientes {
         }
 
         if(!encontrado){
-            System.out.println("cliente no encontrado no encontrado");
+            System.out.println("cliente no encontrado ");
         }
 
         return l;

@@ -4,7 +4,7 @@ import java.util.Iterator;
 
 public class metodos_vehiculo {
     
-   public LinkedList<vehiculo> llena_vehiculos(LinkedList<vehiculo> l, Scanner sc) {
+    public LinkedList<vehiculo> llena_vehiculos(LinkedList<vehiculo> l, Scanner sc) {
 
     boolean seguir = true;
 
@@ -33,10 +33,18 @@ public class metodos_vehiculo {
                 v = new vehiculo();
                 break;
         }
-
         System.out.println("Placa:");
-        v.setPlaca(sc.next());
+        String opt1 = sc.next();
 
+        for (vehiculo o : l) {
+            if(o.getPlaca().equalsIgnoreCase(opt1)){
+                System.out.println("La placa ya se encuentra registrada");
+                seguir=false;
+                return l;
+            }
+        }
+
+        v.setPlaca(opt1);
         System.out.println("Marca:");
         v.setMarca(sc.next());
 

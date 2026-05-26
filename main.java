@@ -107,13 +107,13 @@ public class main {
                                         listacontratos=c.registrar_contrto(listacontratos, sc);
                                     break;
                                 case 2:
-                                    
+                                        listacontratos=c.modificar_contrato(listacontratos, sc);
                                     break;
                                 case 3:
-                                    
+                                        listacontratos=c.finalizar_contrato(listacontratos, sc);
                                     break;
                                 case 4:
-                                    
+                                        listacontratos=c.buscar_contrato(listacontratos, sc);
                                     break;
                                 case 5:
                                         r=false;

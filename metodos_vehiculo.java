@@ -11,9 +11,8 @@ public class metodos_vehiculo {
     while (seguir) {
 
         System.out.println("Tipo de vehiculo");
-        System.out.println("1. Vehiculo");
-        System.out.println("2. Sedan");
-        System.out.println("3. SUV");
+        System.out.println("1. Sedan");
+        System.out.println("2. SUV");
 
         int tipo = validaciones.validarEntero_positivo(sc);
 
@@ -21,17 +20,14 @@ public class metodos_vehiculo {
 
         switch (tipo) {
 
-            case 2:
+            case 1:
                 v = new sedan();
                 break;
 
-            case 3:
+            default:
                 v = new suv();
                 break;
 
-            default:
-                v = new vehiculo();
-                break;
         }
         System.out.println("Placa:");
         String opt1 = validaciones.validar_placa(sc);
@@ -46,16 +42,16 @@ public class metodos_vehiculo {
 
         v.setPlaca(opt1);
         System.out.println("Marca:");
-        v.setMarca(sc.next());
+        v.setMarca(validaciones.validar_marca(sc));
 
         System.out.println("Modelo:");
-        v.setModelo(sc.nextInt());
+        v.setModelo(validaciones.validar_modelo(sc));
 
         System.out.println("Precio:");
-        v.setPrecio(sc.nextFloat());
+        v.setPrecio(validaciones.validar_precio(sc));
 
         System.out.println("Estado:");
-        v.setEstado(sc.next());
+        v.setEstado(validaciones.validar_estado(sc));
 
         
         if (v instanceof sedan) {
@@ -112,13 +108,13 @@ public class metodos_vehiculo {
                 System.out.println("Placa");
                 o.setPlaca(validaciones.validar_placa(sc));
                 System.out.println("Marca");
-                o.setMarca(sc.next());
+                o.setMarca(validaciones.validar_marca(sc));
                 System.out.println("Modelo");
-                o.setModelo(sc.nextInt());
+                o.setModelo(validaciones.validar_modelo(sc));
                 System.out.println("Precio");
-                o.setPrecio(sc.nextFloat());
+                o.setPrecio(validaciones.validar_precio(sc));
                 System.out.println("Estado");
-                o.setEstado(sc.next());
+                o.setEstado(validaciones.validar_estado(sc));
                 
             if (o instanceof sedan) {
 

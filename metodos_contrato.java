@@ -50,10 +50,10 @@ public class metodos_contrato {
             c.setPlaca_vehiculo(aux2);
 
             System.out.println("Ingrese la fecha de inicio del contrato");
-            c.setFecha_inicio(sc.next());
+            c.setFecha_inicio(validaciones.validarFecha(sc));
 
             System.out.println("Ingrese la fecha de finalizacion del contrato");
-            c.setFecha_fin(sc.next());
+            c.setFecha_fin(validaciones.validarFecha(sc));
 
             l.add(c);
 
@@ -93,10 +93,10 @@ public class metodos_contrato {
                     encontrado = true;
 
                     System.out.println("Ingrese la nueva fecha de inicio");
-                    o.setFecha_inicio(sc.next());
+                    o.setFecha_inicio(validaciones.validarFecha(sc));
 
                     System.out.println("Ingrese la nueva fecha de finalizacion");
-                    o.setFecha_fin(sc.next());
+                    o.setFecha_fin(validaciones.validarFecha(sc));
 
                     System.out.println("Contrato modificado correctamente");
                     break;

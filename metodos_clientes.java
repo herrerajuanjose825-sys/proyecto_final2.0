@@ -25,12 +25,12 @@ public class metodos_clientes {
         c.setNombre(validaciones.validar_nombres(sc));
         System.out.println("Ingrese el apellido");
         c.setApellido(validaciones.validar_nombres(sc));
-        System.out.println("Ingrese la direccion ");
+        System.out.println("Ingrese la direccion de correo electronico ");
         c.setDireccion(sc.next());
         System.out.println("Ingrese su numero movil ");
         c.setTelefono(validaciones.validar_celular(sc));
         System.out.println("Ingrese su licencia ");
-        c.setLicencia(sc.next());
+        c.setLicencia(validaciones.validar_licencia(sc));
         l.add(c);
         System.out.println("desea continuar ingresando datos 1) si 2) no ");
         int op=validaciones.validarEntero_positivo(sc);
@@ -66,9 +66,9 @@ public class metodos_clientes {
                 System.out.println("Ingrese la direccion ");
                 o.setDireccion(sc.next());
                 System.out.println("Ingrese su numero movil ");
-                o.setTelefono(sc.next());
+                o.setTelefono(validaciones.validar_celular(sc));
                 System.out.println("Ingrese su licencia ");
-                o.setLicencia(sc.next());
+                o.setLicencia(validaciones.validar_licencia(sc));
 
                 break;
             }

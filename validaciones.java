@@ -1,12 +1,17 @@
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
 import java.util.Scanner;
+
+import javax.print.DocFlavor.STRING;
 
 public class validaciones {
     public static int validarEntero_positivo(Scanner sc) {
     int numero;
     do{
-
+        
         while(!sc.hasNextInt()){
-            System.out.println("Error. Ingrese 1 o 2:");
+            System.out.println("Ingrese un numero entero ");
             sc.next();
         }
 
@@ -90,4 +95,96 @@ public class validaciones {
         return celular;
     }
 
+    public static String validar_licencia(Scanner sc){
+        String cedula;
+        do{
+            cedula= sc.next();
+            if(cedula.length()!=10 || !cedula.matches("[0-9]+")){
+                System.out.println("La licencia debe de contener 10 digitos y solo ingresar numeros ");
+            }
+        }while(cedula.length()!=10 || !cedula.matches("[0-9]+"));
+        return cedula;
+    }
+
+    public static String validarFecha(Scanner sc){
+
+    DateTimeFormatter formato =
+            DateTimeFormatter.ofPattern("dd/MM/yyyy");
+
+    String fecha;
+
+    while(true){
+
+        fecha = sc.next();
+
+        try{
+
+            LocalDate.parse(fecha, formato);
+
+            return fecha;
+
+        }catch(DateTimeParseException e){
+
+            System.out.println(
+                "Fecha invalida. Use el formato dd/MM/yyyy");
+        }
+    }
+}
+
+    public static String validar_marca(Scanner sc){
+        String marca;
+        do{
+            marca=sc.next().toUpperCase();
+            if(!marca.matches("[A-Z]+")){
+                System.out.println("No ingrese numeros ni carateres especiales  ");
+            }
+        }while(!marca.matches("[A-Z]+"));
+        return marca;
+    }
+
+    public static int validar_modelo(Scanner sc){
+        int modelo;
+        do{
+            
+            while(!sc.hasNextInt()){
+                System.out.println("Ingrese un numero entero");
+                sc.next();
+}
+            modelo=sc.nextInt();
+
+            if(String.valueOf(modelo).length()!=4 && modelo < 1950){
+                System.out.println("El modelo debe ser un año de digitos mayor a 1950");
+            }
+
+        }while(String.valueOf(modelo).length()!=4 || modelo < 1950);
+        return modelo;
+    }
+
+    public static String validar_estado(Scanner sc){
+        String estado, aux= "DISPONIBLE", aux1="ARRENDADO";
+
+        do{
+            estado= sc.next().toUpperCase();
+            if(!estado.equals(aux) && !estado.equals(aux1)){
+                System.out.println("Ingrese disponible o arrendado");
+            }
+        }while(!estado.equals(aux) && !estado.equals(aux1));
+
+        return estado;
+    }
+
+    public static float validar_precio(Scanner sc){
+        float precio;
+        do{
+            while(!sc.hasNextInt()){
+                System.out.println("debe de ingresar valores numericos");
+                sc.next();
+            }
+            precio=sc.nextFloat();
+            if(precio<= 0){
+                System.out.println("ingrese un valor valido ");
+            }
+        }while(precio<= 0);
+        return precio;
+    }
 }

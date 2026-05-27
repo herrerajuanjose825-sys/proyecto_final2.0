@@ -59,21 +59,40 @@ public class metodos_vehiculo {
             sedan s = (sedan) v;
 
             System.out.println("Tipo de conbustible:");
-            s.setTipo_combustible(sc.next());
+            s.setTipo_combustible(validaciones.validar_gasolina(sc));
 
-            System.out.println("Tipo de trasmiccion ");
-            s.setTrasmision(sc.next());
+            System.out.println("Tipo de trasmiccion 1) automatico 2) manual ");
+
+            switch (validaciones.validarEntero_positivo(sc)) {
+                case 1:
+                    s.setTrasmision("automatico");
+                    break;
+            
+                default:
+                    s.setTrasmision("manual");
+                    break;
+            }
+            
         }
 
         if (v instanceof suv) {
 
             suv s = (suv) v;
 
-            System.out.println("Tipo de traccion ");
-            s.setTraccion(sc.next());
+            System.out.println("Tipo de traccion 1) 4x2 2) 4x4 ");
+
+            switch (validaciones.validarEntero_positivo(sc)) {
+                case 1:
+                    s.setTraccion("4x2");
+                    break;
+            
+                default:
+                    s.setTraccion("4x4");
+                    break;
+            }
 
             System.out.println("Capacidad del maletero:");
-            s.setCapacidad_maletero(sc.nextFloat());
+            s.setCapacidad_maletero(validaciones.validar_capacidad(sc));
         }
 
         l.add(v);
@@ -120,22 +139,41 @@ public class metodos_vehiculo {
 
                 sedan s = (sedan) o;
 
-                System.out.println("Tipo de conbustible:");
-                s.setTipo_combustible(sc.next());
+            System.out.println("Tipo de conbustible:");
+            s.setTipo_combustible(validaciones.validar_gasolina(sc));
 
-                System.out.println("Tipo de trasmiccion ");
-                s.setTrasmision(sc.next());
+            System.out.println("Tipo de trasmiccion 1) automatico 2) manual ");
+
+            switch (validaciones.validarEntero_positivo(sc)) {
+                case 1:
+                    s.setTrasmision("automatico");
+                    break;
+            
+                default:
+                    s.setTrasmision("manual");
+                    break;
+            }
+                
             }
 
             if (o instanceof suv) {
 
                 suv s = (suv) o;
 
-                System.out.println("Tipo de traccion ");
-                s.setTraccion(sc.next());
+                System.out.println("Tipo de traccion 1) 4x2 2) 4x4 ");
 
-                System.out.println("Capacidad del maletero:");
-                s.setCapacidad_maletero(sc.nextFloat());
+            switch (validaciones.validarEntero_positivo(sc)) {
+                case 1:
+                    s.setTraccion("4x2");
+                    break;
+            
+                default:
+                    s.setTraccion("4x4");
+                    break;
+            }
+
+            System.out.println("Capacidad del maletero:");
+            s.setCapacidad_maletero(validaciones.validar_capacidad(sc));
             }
 
             System.out.println("vehiculo modificado");

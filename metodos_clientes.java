@@ -26,7 +26,7 @@ public class metodos_clientes {
         System.out.println("Ingrese el apellido");
         c.setApellido(validaciones.validar_nombres(sc));
         System.out.println("Ingrese la direccion de correo electronico ");
-        c.setDireccion(sc.next());
+        c.setDireccion(validaciones.validar_Correo(sc));
         System.out.println("Ingrese su numero movil ");
         c.setTelefono(validaciones.validar_celular(sc));
         System.out.println("Ingrese su licencia ");
@@ -64,7 +64,7 @@ public class metodos_clientes {
                 System.out.println("Ingrese el apellido");
                 o.setApellido(validaciones.validar_nombres(sc));
                 System.out.println("Ingrese la direccion ");
-                o.setDireccion(sc.next());
+                o.setDireccion(validaciones.validar_Correo(sc));
                 System.out.println("Ingrese su numero movil ");
                 o.setTelefono(validaciones.validar_celular(sc));
                 System.out.println("Ingrese su licencia ");

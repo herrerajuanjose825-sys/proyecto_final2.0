@@ -3,7 +3,6 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
-import javax.print.DocFlavor.STRING;
 
 public class validaciones {
     public static int validarEntero_positivo(Scanner sc) {
@@ -29,7 +28,6 @@ public class validaciones {
 
     public static String validar_cedula(Scanner sc){
 
-    boolean r=false;
     String cedula;
     do{
         cedula = sc.next();
@@ -186,5 +184,63 @@ public class validaciones {
             }
         }while(precio<= 0);
         return precio;
+    }
+
+    public static String validar_Correo(Scanner sc){
+
+    String correo;
+
+        do{
+            correo = sc.next().toLowerCase();
+            if(!correo.matches("^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$")){
+                System.out.println("Ingrese un correo valido");
+            }
+
+        }while(!correo.matches(
+                "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,}$"));
+
+        return correo;
+}
+
+    public static String validar_gasolina(Scanner sc){
+        String gasolina, aux="GASOLINA", aux1="DIESEL", aux2="ELECTRICO";
+        do{
+            gasolina= sc.next().toUpperCase();
+            if(!gasolina.equals(aux) && !gasolina.equals(aux1) && !gasolina.equals(aux2)){
+                System.out.println("Porfavor ingrese: Gasolina, Diesel o Electrico");
+            }
+        }while(!gasolina.equals(aux) && !gasolina.equals(aux1) && !gasolina.equals(aux2));
+        return gasolina;
+    }
+
+    public static float validar_capacidad(Scanner sc){
+        float capacidad;
+        do{
+            if(!sc.hasNextInt()){
+                System.out.println("Ingrese valores numericos");
+                sc.next();
+            }
+            capacidad=sc.nextFloat();
+            if(capacidad<=0){
+                System.out.println("ingrese un valor mayor a 0");
+            }
+        }while(capacidad<=0);
+        return capacidad;
+    }
+
+    public static int validar_opcion(Scanner sc){
+        int opcion;
+        do{
+            while(!sc.hasNextInt()){
+                System.out.println("Ingrese un numero");
+                sc.next();
+            }
+            opcion=sc.nextInt();
+            if(opcion<=0 || opcion>=6){
+                System.out.println("Ingrese un numero dentro del rango 1-5");
+            }
+
+        }while(opcion<=0 || opcion>=6);
+        return opcion;
     }
 }

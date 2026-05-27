@@ -9,8 +9,7 @@ public class informe {
         
         if(clientes.isEmpty() ||
                 vehiculos.isEmpty() ||
-                contratosActivos.isEmpty() ||
-                contratosFinalizados.isEmpty()){
+                contratosActivos.isEmpty()){
 
         System.out.println("Alguna lista esta vacia");
         return;

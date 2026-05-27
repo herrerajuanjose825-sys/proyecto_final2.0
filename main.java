@@ -25,9 +25,8 @@ public class main {
             System.out.println("4) Imprimir informe general ");
             System.out.println("5) Salir del sistema");
             
-            int opt = sc.nextInt();
 
-            switch (opt) {
+            switch (validaciones.validar_opcion(sc)) {
                 case 1:
                             while (r) {
                                 System.out.println("1) Registar clientes  ");
@@ -35,9 +34,9 @@ public class main {
                                 System.out.println("3) Eliminar clientes  ");
                                 System.out.println("4) Buscar clientes");
                                 System.out.println("5) Regresar el menu principal");
-                                opt1=sc.nextInt();
                                 
-                            switch (opt1) {
+                                
+                            switch (validaciones.validar_opcion(sc)) {
                                 case 1:
                                         listacliente=mc.llenar_lista_cliente(listacliente, sc);
                                     break;
@@ -68,9 +67,9 @@ public class main {
                                 System.out.println("3) Eliminar vehiculo  ");
                                 System.out.println("4) Buscar vehiculo");
                                 System.out.println("5) Regresar el menu principal");
-                                opt1=sc.nextInt();
                                 
-                            switch (opt1) {
+                                
+                            switch (validaciones.validar_opcion(sc)) {
                                 case 1:
                                         listavehiculo=v.llena_vehiculos(listavehiculo, sc);
                                     break;
@@ -102,9 +101,9 @@ public class main {
                                 System.out.println("3) Finalizar contrato  ");
                                 System.out.println("4) Buscar contranto ");
                                 System.out.println("5) Regresar el menu principal");
-                                opt1=sc.nextInt();
                                 
-                            switch (opt1) {
+                                
+                            switch (validaciones.validar_opcion(sc)) {
                                 case 1:
                                         listacontratos=c.registrar_contrto(listacontratos, sc);
                                     break;
